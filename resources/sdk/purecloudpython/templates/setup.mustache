@@ -1,34 +1,31 @@
-# coding: utf-8
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
 
-import sys
-from setuptools import setup, find_packages
+[project]
+name = "{{packageName}}"
+version = "{{packageVersion}}"
+authors = [
+    {name = "{{packageAuthor}}", email = "{{packageAuthorEmail}}"},
+]
+description = "{{packageTitle}}"
+readme = "README.md"
+requires-python = ">=3.9"
+keywords = ["Swagger {{packageKeywords}}"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python"
+]
+license = {file = "License.txt"}
+dependencies = [
+    "certifi>=2025.01.31",
+    "urllib3>=2.2.0",
+    "python-dateutil>=2.9.0.post0",
+    "watchdog>=4.0.0"
+]
 
-NAME = "{{packageName}}"
-VERSION = "{{packageVersion}}"
+[project.urls]
+Homepage = "{{packageUrl}}"
 
-# To install the library, run the following
-#
-# python setup.py install
-#
-# prerequisite: setuptools
-# http://pypi.python.org/pypi/setuptools
-
-REQUIRES = ["urllib3 >= 2.2.0", "certifi >= 2025.01.31", "python-dateutil >= 2.9.0.post0", "watchdog >= 4.0.0"]
-
-setup(
-    name="{{packageName}}",
-    version="{{packageVersion}}",
-    description="{{packageTitle}}",
-    author="{{packageAuthor}}",
-    author_email="{{packageAuthorEmail}}",
-    url="{{packageUrl}}",
-    keywords=["Swagger {{packageKeywords}}"],
-    install_requires=REQUIRES,
-    packages=find_packages(),
-    include_package_data=True,
-    long_description="{{packageDescription}}",
-    classifiers=[
-        "License :: OSI Approved :: MIT License"
-    ],
-    python_requires=">=3.9"
-)
+[tool.setuptools]
+include-package-data = true
