@@ -9,12 +9,6 @@ echo "TESTS_DIR=$TESTS_DIR"
 # Copy license
 cp $SDK_REPO/LICENSE $BUILD_DIR/License.txt
 
-# Rename python setup file
-if [ ! -f $BUILD_DIR/pyproject.toml ]; then
-    mv $BUILD_DIR/setup.py $BUILD_DIR/pyproject.toml
-    cp $TESTS_DIR/setup.py $BUILD_DIR/setup.py
-fi
-
 # Compile module
 cd $BUILD_DIR
 python3.9 -m pip install build
